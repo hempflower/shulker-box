@@ -22,4 +22,7 @@ jobs:
     - run: npm run electron:build
       env:
         CI: true
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        OSS_REGION: ${{ secrets.OSS_REGION }}
+        OSS_ID: ${{ secrets.OSS_ID }}
+        OSS_SECRET: ${{ secrets.OSS_SECRET }}
+        OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
