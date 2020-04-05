@@ -11,7 +11,7 @@ module.exports = {
           target: "nsis-web"
         },
         nsisWeb: {
-          appPackageUrl: 'shulkerbox.orecraft.cn/download/latest'
+          appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest'
         },
         directories: {
           buildResources: 'scripts'
