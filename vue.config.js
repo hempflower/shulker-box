@@ -10,6 +10,9 @@ module.exports = {
         win: {
           target: "nsis-web"
         },
+        linux: {
+          target: "AppImage"
+        },
         nsisWeb: {
           appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest'
         },
