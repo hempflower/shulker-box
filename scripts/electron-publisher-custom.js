@@ -1,6 +1,6 @@
 const electronPublish = require('electron-publish');
 const OSS = require('ali-oss');
-
+const path = require('path')
 
 const basedir = "download/latest"
 class Publisher extends electronPublish.Publisher {
@@ -12,7 +12,7 @@ class Publisher extends electronPublish.Publisher {
       !process.env['OSS_SECRET'] ||
       !process.env['OSS_BUCKET']
     ) {
-      console.err('Invaild OSS Config.')
+      console.error('Invaild OSS Config.')
       return;
     }
     let client = new OSS({
@@ -21,12 +21,12 @@ class Publisher extends electronPublish.Publisher {
       accessKeySecret: process.env['OSS_SECRET'],
       bucket: process.env['OSS_BUCKET']
     });
-    try {
-      let result = await client.put(basedir + '/' + task.safeArtifactName, task.file);
-      console.log(result);
-    } catch (err) {
-      console.err(err);
-    }
+    let filename = task.safeArtifactName?task.safeArtifactName:path.basename(task.file)
+    let result = await client.put(basedir + '/' + filename, task.fileContent);
+    console.log('Upload ' + filename)
+  }
+  toString() {
+    return "orecraft"
   }
 };
 module.exports = Publisher;
