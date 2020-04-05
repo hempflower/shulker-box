@@ -12,7 +12,8 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  //由于打包后的特点，更适合使用hash模式
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes
 })
