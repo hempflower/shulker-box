@@ -20,7 +20,7 @@ module.exports = {
           buildResources: 'scripts'
         },
         publish: {
-          "provider": "custom"
+          "provider": "github"
         }
       }
     }
