@@ -22,7 +22,7 @@ class Publisher extends electronPublish.Publisher {
       bucket: process.env['OSS_BUCKET']
     });
     let filename = task.safeArtifactName?task.safeArtifactName:path.basename(task.file)
-    let result = await client.put(basedir + '/' + filename, task.fileContent);
+    let result = await client.put(basedir + '/' + filename, task.file);
     console.log('Upload ' + filename)
   }
   toString() {
