@@ -14,7 +14,7 @@ module.exports = {
           target: "AppImage"
         },
         nsisWeb: {
-          appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest'
+          appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest/latest.yml'
         },
         directories: {
           buildResources: 'scripts'
