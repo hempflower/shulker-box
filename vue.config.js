@@ -17,7 +17,7 @@ module.exports = {
           buildResources: 'scripts'
         },
         publish: {
-          "provider": "orecraft"
+          "provider": "custom"
         }
       }
     }
