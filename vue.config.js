@@ -10,7 +10,13 @@ module.exports = {
         win: {
           target: "nsis-web"
         },
-        nsis: {}
+        nsis: {},
+        directories: {
+          buildResources: 'scripts'
+        },
+        publish: {
+          "provider": "orecraft"
+        }
       }
     }
   }
