@@ -27,7 +27,7 @@ module.exports = {
           }
         },
         nsisWeb: {
-          appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest/latest.yml'
+          appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest'
         },
         directories: {
           buildResources: 'scripts'
