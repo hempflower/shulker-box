@@ -9,7 +9,7 @@ module.exports = {
         productName: "ShulkerBox",
         win: {
           target: {
-            target: "nsis-web",
+            target: "nsis",
             arch: [
               "x64",
               "ia32"
@@ -25,9 +25,6 @@ module.exports = {
               "ia32"
             ]
           }
-        },
-        nsisWeb: {
-          appPackageUrl: 'https://shulkerbox.orecraft.cn/download/latest'
         },
         directories: {
           buildResources: 'scripts'
