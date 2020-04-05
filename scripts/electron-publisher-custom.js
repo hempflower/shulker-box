@@ -19,7 +19,8 @@ class Publisher extends electronPublish.Publisher {
       region: process.env['OSS_REGION'],
       accessKeyId: process.env['OSS_ID'],
       accessKeySecret: process.env['OSS_SECRET'],
-      bucket: process.env['OSS_BUCKET']
+      bucket: process.env['OSS_BUCKET'],
+      timeout: '600000'
     });
     let filename = task.safeArtifactName?task.safeArtifactName:path.basename(task.file)
     let result = await client.put(basedir + '/' + filename, task.file);
