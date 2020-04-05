@@ -1,15 +1,28 @@
 <template>
-  <div>
+  <v-app style="height:100%;width:100%">
     <WindowBar></WindowBar>
-    <router-view />
-  </div>
+    <router-view></router-view>
+  </v-app>
 </template>
+
 <script>
 import WindowBar from "./components/WindowBar";
+
 export default {
-  components: { WindowBar }
+  name: "App",
+  components: {
+    WindowBar
+  },
+  data: () => ({
+    //
+  }),
+  mounted() {
+    this.$vuetify.theme.dark = true;
+  }
 };
 </script>
-
-<style lang="scss">
+<style>
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
 </style>

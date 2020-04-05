@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import {
   createProtocol,
   /* installVueDevtools */
@@ -38,6 +38,13 @@ function createWindow() {
 
   win.on('closed', () => {
     win = null
+  })
+
+  win.on('maximize', ()=> {
+    win.webContents.send('window-event','max')
+  })
+  win.on('unmaximize', ()=> {
+    win.webContents.send('window-event','unmaximize')
   })
 }
 
@@ -93,3 +100,20 @@ if (isDevelopment) {
     })
   }
 }
+
+ipcMain.on('window', (event, arg) => {
+  switch (arg) {
+    case 'close':
+      win.close()
+      break;
+    case 'min':
+      win.minimize()
+      break;
+    case 'max':
+      win.maximize()
+      break;
+    case 'unmaximize':
+      win.unmaximize()
+      break;
+  }
+})
