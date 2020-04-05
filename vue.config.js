@@ -10,12 +10,14 @@ module.exports = {
         win: {
           target: "nsis-web"
         },
-        nsis: {},
+        nsisWeb: {
+          appPackageUrl: 'shulkerbox.orecraft.cn/download/latest'
+        },
         directories: {
           buildResources: 'scripts'
         },
         publish: {
-          "provider": "custom"
+          "provider": "orecraft"
         }
       }
     }
