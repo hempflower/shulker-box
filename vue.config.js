@@ -26,9 +26,6 @@ module.exports = {
             ]
           }
         },
-        directories: {
-          buildResources: 'scripts'
-        },
         publish: {
           "provider": "custom"
         }
