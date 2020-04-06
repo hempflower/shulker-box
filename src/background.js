@@ -23,7 +23,7 @@ function createWindow() {
     title: 'ShulkerBox',
     backgroundColor: "#000000",
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
     }
   })
 

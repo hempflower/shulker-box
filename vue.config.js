@@ -17,6 +17,9 @@ module.exports = {
           }
 
         },
+        nsis: {
+          artifactName: "${productName}-Setup-${version}.${ext}"
+        },
         linux: {
           target: {
             target: "AppImage",
