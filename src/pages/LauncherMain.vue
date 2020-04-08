@@ -3,10 +3,6 @@
     <SideBar></SideBar>
     <v-content app>
     </v-content>
-    <v-snackbar value=true bottom left absolute>
-      新版本可用
-      <v-btn color="red" text>我知道了</v-btn>
-    </v-snackbar>
   </v-app>
 </template>
 
