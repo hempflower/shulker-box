@@ -37,7 +37,10 @@ class Publisher extends electronPublish.Publisher {
           }
         }
       });
-      await client.deleteMulti(todelete);
+      if (todelete.length > 0) {
+        await client.deleteMulti(todelete);
+      }
+
     }
     let filename = task.safeArtifactName ? task.safeArtifactName : path.basename(task.file)
     let result = await client.put(basedir + '/' + filename, task.file);
