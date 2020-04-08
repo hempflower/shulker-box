@@ -18,7 +18,10 @@ module.exports = {
 
         },
         nsis: {
-          artifactName: "${productName}-Setup-${version}.${ext}"
+          artifactName: "${productName}-Setup-${version}.${ext}",
+          oneClick: false,
+          perMachine: true,
+          allowToChangeInstallationDirectory: true
         },
         linux: {
           target: {
