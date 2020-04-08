@@ -25,8 +25,7 @@ class Publisher extends electronPublish.Publisher {
       timeout: '600000'
     });
     if (path.extname(task.file) === '.yml') {
-      let inf = YAML.parse(fs.readFileSync(task.file))
-
+      let inf = YAML.parse(fs.readFileSync(task.file).toString())
       let todelete = []
       const result = await client.list({
         prefix: basedir,
