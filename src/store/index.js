@@ -5,17 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    dialog: []
+    dialog: [],
+    remindUpdate: false
   },
   mutations: {
-    alert(state,data){
+    alert(state, data) {
       state.dialog.push({
         title: data.title,
         content: data.content,
         show: true,
-        buttons: data.buttons?data.buttons:[]
-        
+        buttons: data.buttons ? data.buttons : []
+
       })
+    },
+    remindUpdate(state, data) {
+      state.remindUpdate = data
     }
   },
   actions: {

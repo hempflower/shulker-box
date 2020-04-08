@@ -21,6 +21,9 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 function checkupdate(){
   autoUpdater.setFeedURL('http://shulkerbox.orecraft.cn/download/latest/')
   autoUpdater.checkForUpdatesAndNotify()
+  autoUpdater.on('update-downloaded',()=>{
+    win.webContents.send('update-avaliable')
+  })
 }
 
 function createWindow() {

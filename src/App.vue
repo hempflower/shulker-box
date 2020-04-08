@@ -24,6 +24,10 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-snackbar :timeout="0" bottom right :value="hasupdate">
+      我们将在您关闭ShulkerBox后安装更新
+      <v-btn color="red" text @click="hideRemind">我知道了</v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
@@ -40,10 +44,17 @@ export default {
   }),
   mounted() {
     this.$vuetify.theme.dark = true;
+    //监听更新
+    this.$ipc.once("update-avaliable", () => {
+      this.$store.commit("remindUpdate", true);
+    });
   },
   computed: {
     dialogs() {
       return this.$store.state.dialog;
+    },
+    hasupdate() {
+      return this.$store.state.remindUpdate;
     }
   },
   methods: {
@@ -51,6 +62,9 @@ export default {
       let dialogs = this.$store.state.dialog;
       dialogs[id]["buttons"][bid].cb();
       this.$store.state.dialog.splice(id, 1);
+    },
+    hideRemind() {
+      this.$store.commit("remindUpdate", false);
     }
   }
 };
