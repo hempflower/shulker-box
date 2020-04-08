@@ -13,17 +13,26 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+const win
+
+const shouldUpdate = false
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: true, standard: true } }])
 
-function checkupdate(){
+function checkupdate() {
   autoUpdater.setFeedURL('http://shulkerbox.orecraft.cn/download/latest/')
+  autoUpdater.autoDownload = true
+  autoUpdater.autoInstallOnAppQuit = false
   autoUpdater.checkForUpdates()
-  autoUpdater.on('update-downloaded',()=>{
+  autoUpdater.on('update-downloaded', () => {
+    shouldUpdate = true
     win.webContents.send('update-avaliable')
   })
+  app.on('before-quit',()=>{
+    autoUpdater.quitAndInstall(false)
+  })
+  
 }
 
 function createWindow() {
@@ -53,11 +62,11 @@ function createWindow() {
     win = null
   })
 
-  win.on('maximize', ()=> {
-    win.webContents.send('window-event','max')
+  win.on('maximize', () => {
+    win.webContents.send('window-event', 'max')
   })
-  win.on('unmaximize', ()=> {
-    win.webContents.send('window-event','unmaximize')
+  win.on('unmaximize', () => {
+    win.webContents.send('window-event', 'unmaximize')
   })
 }
 
