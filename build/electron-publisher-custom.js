@@ -1,6 +1,8 @@
 const electronPublish = require('electron-publish');
 const OSS = require('ali-oss');
-const path = require('path')
+const path = require('path');
+const YAML = require('yamljs');
+const fs = require('fs');
 
 const basedir = "download/latest"
 class Publisher extends electronPublish.Publisher {
@@ -22,9 +24,26 @@ class Publisher extends electronPublish.Publisher {
       bucket: process.env['OSS_BUCKET'],
       timeout: '600000'
     });
-    let filename = task.safeArtifactName?task.safeArtifactName:path.basename(task.file)
+    if (path.extname(task.file) === '.yml') {
+      let inf = YAML.parse(fs.readFileSync(task.file))
+
+      let todelete = []
+      const result = await client.list({
+        prefix: basedir,
+      })
+      result.objects.forEach(obj => {
+        if (obj.name.indexOf()) {
+          if (obj.name.indexOf(inf.version) == -1) {
+            todelete.push(obj.name)
+          }
+        }
+      });
+      await client.deleteMulti(todelete);
+    }
+    let filename = task.safeArtifactName ? task.safeArtifactName : path.basename(task.file)
     let result = await client.put(basedir + '/' + filename, task.file);
     console.log('Upload ' + filename)
+
   }
   toString() {
     return "orecraft"
