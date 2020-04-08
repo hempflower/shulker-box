@@ -32,7 +32,7 @@ class Publisher extends electronPublish.Publisher {
       })
       result.objects.forEach(obj => {
         if (obj.name.indexOf()) {
-          if (obj.name.indexOf(inf.version) == -1) {
+          if (obj.name.indexOf(inf.version) == -1 && obj.name.indexOf('.yml') == -1) {
             todelete.push(obj.name)
           }
         }
