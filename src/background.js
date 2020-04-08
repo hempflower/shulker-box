@@ -5,6 +5,10 @@ import {
   createProtocol,
   /* installVueDevtools */
 } from 'vue-cli-plugin-electron-builder/lib'
+import { autoUpdater } from "electron-updater"
+autoUpdater.logger = require("electron-log")
+autoUpdater.logger.transports.file.level = "info"
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -13,6 +17,11 @@ let win
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: true, standard: true } }])
+
+function checkupdate(){
+  autoUpdater.setFeedURL('http://shulkerbox.orecraft.cn/download/latest/')
+  autoUpdater.checkForUpdatesAndNotify()
+}
 
 function createWindow() {
   // Create the browser window.
@@ -85,6 +94,7 @@ app.on('ready', async () => {
 
   }
   createWindow()
+  checkupdate()
 })
 
 // Exit cleanly on request from parent process in development mode.

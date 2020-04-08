@@ -14,8 +14,8 @@
       <v-list-item v-for="item in items" :key="item.title" link>
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
+          <v-badge v-if="item.dot" color="pink" dot></v-badge>
         </v-list-item-icon>
-
         <v-list-item-content>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item-content>
@@ -29,23 +29,25 @@ export default {
   data() {
     return {
       items: [
-        { title: "主页", icon: "mdi-home" },
-        { title: "Photos", icon: "mdi-image" },
-        { title: "About", icon: "mdi-help-box" }
-      ],  
+        { title: "主页", icon: "mdi-home"},
+        { title: "游戏管理", icon: "mdi-image"},
+        { title: "账号管理", icon: "mdi-image"},
+        { title: "资源下载", icon: "mdi-image"},
+        { title: "关于", icon: "mdi-help-box", dot: true }
+      ]
     };
   },
   computed: {
-      version (){
-          return process.env.NODE_ENV == "production"
-          ? "v" + require("electron").remote.app.getVersion()
-          : "开发版";
-      },
-      logo (){
-          return process.env.NODE_ENV == "production"
-          ? "/logo/icon.png"
-          : "/logo/icon-debug.png";
-      }
+    version() {
+      return process.env.NODE_ENV == "production"
+        ? "v" + require("electron").remote.app.getVersion()
+        : "开发版";
+    },
+    logo() {
+      return process.env.NODE_ENV == "production"
+        ? "/logo/icon.png"
+        : "/logo/icon-debug.png";
+    }
   }
 };
 </script>

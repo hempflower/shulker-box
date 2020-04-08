@@ -1,6 +1,6 @@
 {
   "name": "shulker-box",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Launch Your Minecraft",
   "author": "hempflower <1993996310@qq.com>",
@@ -15,6 +15,8 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.6.4",
+    "electron-log": "^4.1.1",
+    "electron-updater": "^4.2.5",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
     "vuetify": "^2.2.11",
