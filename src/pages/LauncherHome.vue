@@ -1,15 +1,15 @@
 <template>
   <div>
-    <v-banner single-line :value="hasupdate">
+    <v-banner single-line :value="updateTip">
       ShulkerBox将在关闭后进行更新。
       <template v-slot:actions>
-        <v-btn text color="red" @click="closeRemind">我知道了</v-btn>
+        <v-btn text color="red" @click="updateTip = false">我知道了</v-btn>
       </template>
     </v-banner>
-    ddddddddddddd
-    <v-card class="launch_panel">
+
+    <v-card tile class="launch_panel">
       <v-select v-model="data" style="width:256px;float:left" :items="items" outlined hide-details></v-select>
-      <v-btn class="launch_btn" color="green" x-large>启动游戏</v-btn>
+      <v-btn class="launch_btn" color="green" depressed x-large>启动游戏</v-btn>
     </v-card>
   </div>
 </template>
@@ -19,24 +19,20 @@ export default {
   data() {
     return {
       items: [{ text: "水星迫降:1.12.2" }],
-      data: null
+      data: null,
+      updateTip: false
     };
   },
   mounted() {
+    this.updateTip = this.$store.state.updateState == 2;
     for (let x = 0; x < 100; x++) {
       this.items.push({ text: "Minecraft:1.7." + x });
     }
   },
   computed: {
-    hasupdate() {
-      return this.$store.state.remindUpdate;
-    }
+
   },
-  methods: {
-      closeRemind(){
-          this.$store.commit("remindUpdate", false);
-      }
-  }
+  methods: {}
 };
 </script>
 

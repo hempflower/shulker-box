@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     dialog: [],
-    remindUpdate: false
+    updateState: 0,
   },
   mutations: {
     alert(state, data) {
@@ -15,12 +15,11 @@ export default new Vuex.Store({
         content: data.content,
         show: true,
         buttons: data.buttons ? data.buttons : []
-
       })
     },
-    remindUpdate(state, data) {
-      state.remindUpdate = data
-    }
+    updateState(state, data) {
+      state.updateState = data
+    },
   },
   actions: {
   },

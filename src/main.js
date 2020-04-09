@@ -7,6 +7,7 @@ import { ipcRenderer } from 'electron'
 
 Vue.config.productionTip = false
 Vue.prototype.$ipc = ipcRenderer
+Vue.prototype.$shell = require('electron').shell
 
 
 new Vue({

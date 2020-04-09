@@ -27,6 +27,9 @@ function checkupdate() {
   autoUpdater.checkForUpdates()
   autoUpdater.on('update-downloaded', () => {
     shouldUpdate = true
+    win.webContents.send('update-downloaded')
+  })
+  autoUpdater.on('update-avaliable', () => {
     win.webContents.send('update-avaliable')
   })
   app.on('before-quit', () => {

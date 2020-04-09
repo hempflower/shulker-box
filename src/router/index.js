@@ -12,6 +12,10 @@ const routes = [
       {
         path: 'home',
         component: ()=>import('../pages/LauncherHome.vue')
+      },
+      {
+        path: 'about',
+        component: ()=>import('../pages/LauncherAbout.vue')
       }
     ]
   },
