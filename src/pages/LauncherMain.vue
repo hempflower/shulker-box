@@ -2,6 +2,7 @@
   <v-app style="height:100%;width:100%">
     <SideBar></SideBar>
     <v-content app>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
@@ -10,17 +11,14 @@
 import SideBar from "../components/SideBar";
 export default {
   data() {
-    return {
-      right: null
-    };
+    return {};
   },
   mounted() {},
   components: { SideBar },
-  methods: {
-    
-  }
+  methods: {}
 };
 </script>
 
-<style>
+<style scoped>
+
 </style>

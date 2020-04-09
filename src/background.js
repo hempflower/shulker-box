@@ -44,6 +44,8 @@ function createWindow() {
     height: 600,
     frame: false,
     title: 'ShulkerBox',
+    minWidth: 500,
+    minHeight: 500,
     backgroundColor: "#000000",
     webPreferences: {
       nodeIntegration: true,

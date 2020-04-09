@@ -11,7 +11,7 @@
     </v-list-item>
     <v-divider></v-divider>
     <v-list dense nav>
-      <v-list-item v-for="item in items" :key="item.title" link>
+      <v-list-item v-for="item in items" :key="item.title" link :to="item.url">
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
           <v-badge v-if="item.dot" color="pink" dot></v-badge>
@@ -29,11 +29,11 @@ export default {
   data() {
     return {
       items: [
-        { title: "主页", icon: "mdi-home"},
-        { title: "游戏管理", icon: "mdi-image"},
-        { title: "账号管理", icon: "mdi-image"},
-        { title: "资源下载", icon: "mdi-image"},
-        { title: "关于", icon: "mdi-help-box", dot: true }
+        { title: "主页", icon: "mdi-home", url: "/home/home" },
+        { title: "游戏管理", icon: "mdi-image", url: "/home/game" },
+        { title: "账号管理", icon: "mdi-image", url: "/home/accounts" },
+        { title: "资源下载", icon: "mdi-image", url: "/home/download" },
+        { title: "关于", icon: "mdi-help-box", dot: true, url: "/home/about" }
       ]
     };
   },
