@@ -6,8 +6,22 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/home',
+    component: ()=>import('../pages/LauncherMain.vue'),
+    children: [
+      {
+        path: 'home',
+        component: ()=>import('../pages/LauncherHome.vue')
+      }
+    ]
+  },
+  {
     path: '/',
-    component: ()=>import('../pages/LauncherMain.vue')
+    redirect: '/home/home'
+  },
+  {
+    path: '*',
+    redirect: '/home/home'
   }
 ]
 
