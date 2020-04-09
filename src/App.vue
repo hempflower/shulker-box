@@ -68,13 +68,13 @@ html::-webkit-scrollbar {
 }
 
 .app {
-  background-image: url(https://s1.ax1x.com/2020/04/09/G5LNCj.jpg)!important;
-  background-position: center!important;
-  background-repeat: no-repeat!important;
-  background-size: cover!important;
-  background-color: unset!important;
+  background-image: url(https://s1.ax1x.com/2020/04/09/G5LNCj.jpg) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-color: unset !important;
 }
-.v-application{
-  background:none;
+.v-application {
+  background-color: rgba(0,0,0,0)!important;
 }
 </style>
