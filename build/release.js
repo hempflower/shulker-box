@@ -2,9 +2,11 @@ const OSS = require('ali-oss');
 const path = require('path')
 const request = require('superagent')
 const fs = require('fs')
+const Stream = require('stream')
 
 const basedir = "download/latest"
-
+test()
+return
 if (
     !process.env['OSS_REGION'] ||
     !process.env['OSS_ID'] ||
@@ -47,6 +49,6 @@ function getAssets() {
 async function downloadFile(url, name) {
     let data = await request.get(url)
         .set('User-Agent', 'releaseBot/1.0.0')
-    await client.put(basedir + '/' + name, data)
+    await client.putStream(basedir + '/' + name, data)
     console.log('Downloaded ' + name)
 }
