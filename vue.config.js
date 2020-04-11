@@ -33,7 +33,7 @@ module.exports = {
           }
         },
         publish: {
-          "provider": "custom"
+          "provider": "github"
         }
       }
     }

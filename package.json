@@ -10,7 +10,9 @@
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "oss:clean": " node build/clean-oss.js",
+    "oss:release": "node build/release.js"
   },
   "main": "background.js",
   "dependencies": {
@@ -31,6 +33,7 @@
     "electron": "^6.0.0",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
+    "superagent": "^5.2.2",
     "vue-cli-plugin-electron-builder": "~1.4.6",
     "vue-cli-plugin-vuetify": "~2.0.5",
     "vue-template-compiler": "^2.6.11",
