@@ -1,4 +1,5 @@
-# shulker-box
+# Shulker Box - A multifunctional Minecraft Launcher
+![Build](https://github.com/hempflower/shulker-box/workflows/Build/badge.svg)
 
 ## Project setup
 ```
@@ -7,13 +8,10 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run electron:serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run electron:build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
