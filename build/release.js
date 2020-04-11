@@ -48,6 +48,7 @@ function getAssets() {
 async function downloadFile(url, name) {
     let data = await request.get(url)
         .set('User-Agent', 'releaseBot/1.0.0')
-    await client.putStream(basedir + '/' + name, data)
+    fs.writeFileSync('./build/' + name, data.body)
+    await client.put(basedir + '/' + name, './build/' + name)
     console.log('Downloaded ' + name)
 }
