@@ -5,7 +5,6 @@ const fs = require('fs')
 
 const basedir = "download/latest"
 
-
 if (
     !process.env['OSS_REGION'] ||
     !process.env['OSS_ID'] ||
@@ -48,6 +47,6 @@ function getAssets() {
 async function downloadFile(url, name) {
     let data = await request.get(url)
         .set('User-Agent', 'releaseBot/1.0.0')
-    await client.put(basedir + '/' + name, data.body)
+    await client.put(basedir + '/' + name, data)
     console.log('Downloaded ' + name)
 }
