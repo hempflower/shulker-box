@@ -5,8 +5,7 @@ const fs = require('fs')
 const Stream = require('stream')
 
 const basedir = "download/latest"
-test()
-return
+
 if (
     !process.env['OSS_REGION'] ||
     !process.env['OSS_ID'] ||
