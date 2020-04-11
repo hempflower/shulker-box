@@ -25,7 +25,10 @@ let todelete = []
 const result = client.list({
   prefix: basedir,
 })
+console.log(result)
 result.objects.forEach(obj => {
   todelete.push(obj.name)
 });
-client.deleteMulti(todelete);
+if(todelete.length >0){
+  client.deleteMulti(todelete);
+}
