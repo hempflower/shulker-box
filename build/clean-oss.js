@@ -24,7 +24,7 @@ async function deletefile() {
   });
   let todelete = []
   const result = await client.list({
-    delimiter: basedir,
+    prefix: basedir,
   })
 
   result.objects.forEach(obj => {

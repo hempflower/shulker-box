@@ -46,9 +46,8 @@ function getAssets() {
 }
 
 async function downloadFile(url, name) {
-    fs.mkdirSync('assets')
-    let stream = fs.createWriteStream('./assets/' + name)
+    let stream = fs.createWriteStream('./build/' + name)
     request.get(url).set('User-Agent', 'releaseBot/1.0.0').pipe(stream)
-    client.put(basedir + '/' + name, './assets/' + name)
+    client.put(basedir + '/' + name, './build/' + name)
     console.log('Downloaded ' + name)
 }
