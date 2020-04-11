@@ -23,7 +23,7 @@ let client = new OSS({
 });
 let todelete = []
 const result = client.list({
-  prefix: basedir,
+  delimiter: basedir,
 })
 console.log(result)
 result.objects.forEach(obj => {
