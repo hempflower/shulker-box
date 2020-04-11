@@ -22,13 +22,13 @@ let client = new OSS({
   timeout: '600000'
 });
 let todelete = []
-const result = client.list({
+const result = await client.list({
   delimiter: basedir,
 })
-console.log(result)
+
 result.objects.forEach(obj => {
   todelete.push(obj.name)
 });
-if(todelete.length >0){
+if (todelete.length > 0) {
   client.deleteMulti(todelete);
 }
