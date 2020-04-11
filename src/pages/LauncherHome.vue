@@ -6,7 +6,6 @@
         <v-btn text color="red" @click="updateTip = false">我知道了</v-btn>
       </template>
     </v-banner>
-
     <v-card tile class="launch_panel">
       <v-select v-model="data" style="width:256px;float:left" :items="items" outlined hide-details></v-select>
       <v-btn class="launch_btn" color="green" depressed x-large>启动游戏</v-btn>
