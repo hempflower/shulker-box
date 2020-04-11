@@ -84,9 +84,7 @@
 <script>
 export default {
   data() {
-    return {
-      versions: null
-    };
+    return {};
   },
   computed: {
     version() {
@@ -96,11 +94,12 @@ export default {
     },
     updateState() {
       return this.$store.state.updateState;
+    },
+    versions() {
+      return process.versions;
     }
   },
-  beforeMount() {
-    this.versions = process.versions;
-  },
+  beforeMount() {},
   methods: {
     common() {},
     openREPO() {

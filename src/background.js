@@ -113,6 +113,7 @@ app.on('ready', async () => {
 
   }
   createWindow()
+  
   checkupdate()
 })
 

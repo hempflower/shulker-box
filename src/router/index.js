@@ -14,6 +14,10 @@ const routes = [
         component: ()=>import('../pages/LauncherHome.vue')
       },
       {
+        path: 'game',
+        component: ()=>import('../pages/LauncherGame.vue')
+      },
+      {
         path: 'about',
         component: ()=>import('../pages/LauncherAbout.vue')
       }
