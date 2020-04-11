@@ -46,7 +46,7 @@ function getAssets() {
 }
 
 async function downloadFile(url, name) {
-        request.get(url).set('User-Agent', 'releaseBot/1.0.0').end((err, res) => {
+        request.get(url).set('User-Agent', 'releaseBot/1.0.0').end(async (err, res) => {
             if(err){
                 console.error(err)
             }
