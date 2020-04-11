@@ -1,7 +1,8 @@
 name: Release
 on:
-  push:
-    branches: [ master ]
+  release:
+    types: [created]
+    branches: [master]
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -10,18 +11,25 @@ jobs:
         node-version: [12.x]
         os: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
-    - run: npm i -D ali-oss superagent
-    - run: npm run oss:clean
-    - run: npm run oss:release
-      env:
-        CI: true
-        OSS_REGION: ${{ secrets.OSS_REGION }}
-        OSS_ID: ${{ secrets.OSS_ID }}
-        OSS_SECRET: ${{ secrets.OSS_SECRET }}
-        OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm i -D ali-oss superagent
+      - run: npm run oss:clean
+        env:
+          CI: true
+          OSS_REGION: ${{ secrets.OSS_REGION }}
+          OSS_ID: ${{ secrets.OSS_ID }}
+          OSS_SECRET: ${{ secrets.OSS_SECRET }}
+          OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: npm run oss:release
+        env:
+          CI: true
+          OSS_REGION: ${{ secrets.OSS_REGION }}
+          OSS_ID: ${{ secrets.OSS_ID }}
+          OSS_SECRET: ${{ secrets.OSS_SECRET }}
+          OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
