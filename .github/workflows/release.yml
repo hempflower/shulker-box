@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: npm i -D ali-oss superagent
+      - uses: bahmutov/npm-install@v1
       - run: npm run oss:clean
         env:
           CI: true
