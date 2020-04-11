@@ -45,7 +45,7 @@ function getAssets() {
 
 }
 
-function downloadFile(url, name) {
+async function downloadFile(url, name) {
     fs.mkdirSync('assets')
     let stream = fs.createWriteStream('./assets/' + name)
     request.get(url).set('User-Agent', 'releaseBot/1.0.0').pipe(stream)
