@@ -6,6 +6,7 @@ const Stream = require('stream')
 
 const basedir = "download/latest"
 
+
 if (
     !process.env['OSS_REGION'] ||
     !process.env['OSS_ID'] ||
@@ -47,7 +48,7 @@ function getAssets() {
 
 async function downloadFile(url, name) {
     let data = await request.get(url)
-        .set('User-Agent', 'releaseBot/1.0.0')
+        .set('User-Agent', 'releaseBot/1.0.0').buffer(true)
     fs.writeFileSync('./build/' + name, data.body)
     await client.put(basedir + '/' + name, './build/' + name)
     console.log('Downloaded ' + name)
