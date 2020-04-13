@@ -10,7 +10,7 @@
         </v-btn>
       </v-app-bar>
       <v-list color="rgba(0,0,0,0)" class="game_list">
-        <v-list-group v-for="(v,i) in games" :key="i" prepend-icon="mdi-folder">
+        <v-list-group v-for="(v,i) in games" :key="i" prepend-icon="mdi-folder" no-action>
           <template v-slot:activator>
             <v-tooltip right>
               <template v-slot:activator="{ on }">
@@ -28,6 +28,7 @@
             :key="i"
             @click="common(v.path,value)"
             :input-value="selected.path == v.path && selected.version == value"
+            link
           >
             <v-list-item-content>
               <v-list-item-title>{{value}}</v-list-item-title>
