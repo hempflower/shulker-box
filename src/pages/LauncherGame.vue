@@ -1,7 +1,15 @@
 <template>
   <div>
     <v-card class="side_card" color="#1e1e1ec9">
-      <v-list color="rgba(0,0,0,0)">
+      <v-app-bar dense>
+        <v-btn icon>
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-folder</v-icon>
+        </v-btn>
+      </v-app-bar>
+      <v-list color="rgba(0,0,0,0)" class="game_list">
         <v-list-group v-for="(v,i) in games" :key="i" prepend-icon="mdi-folder">
           <template v-slot:activator>
             <v-tooltip right>
@@ -28,7 +36,26 @@
         </v-list-group>
       </v-list>
     </v-card>
-    <v-card class="main_card" color="#1e1e1ec9"></v-card>
+    <v-card class="main_card" color="#1e1e1ec9">
+      <v-toolbar dense>
+        <v-toolbar-title>官方启动器/1.15</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+        <template v-slot:extension>
+          <v-tabs v-model="tab" show-arrows="">
+            <v-tabs-slider></v-tabs-slider>
+            <v-tab>基本设置</v-tab>
+            <v-tab>自动安装</v-tab>
+            <v-tab>MOD管理</v-tab>
+            <v-tab>材质包管理</v-tab>
+            <v-tab>光影包管理</v-tab>
+            <v-tab>存档管理</v-tab>
+          </v-tabs>
+        </template>
+      </v-toolbar>
+    </v-card>
   </div>
 </template>
 
@@ -60,18 +87,67 @@ export default {
           path: "C:/mc",
           system: false,
           versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
+        },
+        {
+          name: "贝爷整合包",
+          path: "C:/mc",
+          system: false,
+          versions: ["1.6.4-MITE"]
         }
       ],
       selected: {
-          path: null,
-          version: null
-      }
+        path: null,
+        version: null
+      },
+      tab: null,
     };
   },
   methods: {
     common(path, version) {
-      this.selected.path = path
-      this.selected.version = version
+      this.selected.path = path;
+      this.selected.version = version;
     }
   }
 };
@@ -79,11 +155,15 @@ export default {
 
 <style scoped>
 .side_card {
-  width: 300px;
+  width: 260px;
   position: absolute;
   top: 8px;
   left: 8px;
   bottom: 8px;
+}
+.game_list {
+  max-height: calc(100% - 48px);
+  overflow-y: scroll;
 }
 
 .main_card {
@@ -91,6 +171,6 @@ export default {
   top: 8px;
   right: 8px;
   bottom: 8px;
-  left: 316px;
+  left: 276px;
 }
 </style>

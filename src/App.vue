@@ -63,7 +63,7 @@ export default {
 };
 </script>
 <style>
-html::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none; /* Chrome Safari */
 }
 
