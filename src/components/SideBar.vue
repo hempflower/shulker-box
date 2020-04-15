@@ -1,14 +1,21 @@
 <template>
-  <v-navigation-drawer class="sidebar" permanent app>
-    <v-list-item>
-      <v-list-item-avatar tile>
-        <img :src="logo" />
-      </v-list-item-avatar>
-      <v-list-item-content>
-        <v-list-item-title class="title">ShulkerBox</v-list-item-title>
-        <v-list-item-subtitle>{{ version }}</v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
+  <v-navigation-drawer class="sidebar" permanent app expand-on-hover>
+    <v-list two-line dense>
+      <v-list-item link class="px-2">
+        <v-list-item-avatar tile>
+          <v-img :src="'https://mcskin.cn/avatar/25/MTk5Mzk5NjMxMEBxcS5jb20=.png?tid=1'"></v-img>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title class="title">Ma_Hua_</v-list-item-title>
+          <v-list-item-subtitle>1993996310@qq.com</v-list-item-subtitle>
+        </v-list-item-content>
+        <v-list-item-action>
+          <v-btn icon @click="toggleAccount">
+            <v-icon>mdi-chevron-down</v-icon>
+          </v-btn>
+        </v-list-item-action>
+      </v-list-item>
+    </v-list>
     <v-divider></v-divider>
     <v-list dense nav>
       <v-list-item v-for="item in items" :key="item.title" link :to="item.url">
@@ -30,9 +37,10 @@ export default {
     return {
       items: [
         { title: "主页", icon: "mdi-home", url: "/home/home" },
-        { title: "游戏管理", icon: "mdi-image", url: "/home/game" },
-        { title: "账号管理", icon: "mdi-image", url: "/home/accounts" },
-        { title: "资源下载", icon: "mdi-image", url: "/home/download" },
+        { title: "游戏管理", icon: "mdi-checkbox-multiple-blank", url: "/home/game" },
+        { title: "账号管理", icon: "mdi-account", url: "/home/accounts" },
+        { title: "资源中心", icon: "mdi-download", url: "/home/download" },
+        { title: "启动器设置", icon: "mdi-cog-outline", url: "/home/setting" },
         {
           title: "关于",
           icon: "mdi-help-box",
@@ -57,14 +65,17 @@ export default {
   methods: {
     updateState() {
       return this.$store.state.updateState;
-    }
+    },
+    toggleAccount(){
+      console.log('点击了切换账号')
+    },
   }
 };
 </script>
 
 <style>
 .sidebar::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
