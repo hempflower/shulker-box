@@ -88,54 +88,6 @@ export default {
           path: "C:/mc",
           system: false,
           versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
-        },
-        {
-          name: "贝爷整合包",
-          path: "C:/mc",
-          system: false,
-          versions: ["1.6.4-MITE"]
         }
       ],
       selected: {

@@ -7,8 +7,21 @@
       </template>
     </v-banner>
     <v-card tile class="launch_panel">
-      <v-select v-model="data" style="width:256px;float:left" :items="items" outlined hide-details></v-select>
-      <v-btn class="launch_btn" color="green" depressed x-large>启动游戏</v-btn>
+      <v-container fluid>
+        <v-row>
+          <v-col cols="6" md="5" offset-md="4" lg="3" offset-lg="7">
+            <v-select
+              v-model="data"
+              :items="items"
+              outlined
+              hide-details
+            ></v-select>
+          </v-col>
+          <v-col cols="6" md="3" lg="2">
+            <v-btn block class="launch_btn" color="primary" depressed x-large height="56px">启动游戏</v-btn>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card>
   </div>
 </template>
@@ -27,16 +40,13 @@ export default {
       this.items.push({ text: "Minecraft:1.7." + x });
     }
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {}
 };
 </script>
 
 <style>
 .launch_btn {
-  width: 256px;
   float: right;
 }
 
@@ -45,6 +55,6 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px;
+  padding: 0px;
 }
 </style>
