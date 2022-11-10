@@ -30,7 +30,7 @@
     "@vue/cli-plugin-vuex": "~4.2.0",
     "@vue/cli-service": "~4.2.0",
     "ali-oss": "^6.5.1",
-    "electron": "^6.0.0",
+    "electron": "^18.3.7",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "superagent": "^5.2.2",
